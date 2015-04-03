@@ -1,0 +1,21 @@
+h1 You are following these media
+.table-responsive
+  table.table.table-striped
+    thead
+      tr
+        th Name
+        th Type
+        th Date added
+        th Action
+    tbody
+      - @follows.each do |follow|
+        tr
+          td
+            = follow.name
+          td
+            = follow.type
+          td
+            = follow.created_at
+          td
+            = link_to "Edit", "#"
+            = link_to "Delete", "#"

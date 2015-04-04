@@ -2,13 +2,13 @@
 h3 Add your favorite movie or tv series
 p This will allow us to constantly check downloadable torrent files of your selected media, so you can easily download them on your next visit.
 .well
-  = form_for @follow, url: user_follows_path do |f|
+  = form_for @favorite_medium, url: user_favorite_media_path do |f|
     .form-group
       = f.label :name
-      = f.text_field :name
+      = f.text_field :name, class: 'form-control'
     .form-group
-      = f.label :type
-      = f.select :type, options_for_select(Follow::MEDIA_TYPE)
+      = f.label :medium_type
+      = f.select :medium_type, options_for_select(FavoriteMedium::MEDIUM_TYPE), {}, { class: 'form-control' }
     .form-group
       = f.submit 'Add', class: 'btn btn-primary'
 
@@ -23,7 +23,7 @@ h1 My favorites
         th Date added
         th Action
     tbody
-      - @follows.each do |follow|
+      - @favorite_media.each do |follow|
         tr
           td
             = follow.name

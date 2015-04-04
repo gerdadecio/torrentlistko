@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'follows/index'
+  get 'favorite_media/index'
 
   devise_for :users
   root 'home#index'
 
   resource :user, only: [] do
-    resources :follows
+    resources :favorite_media
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

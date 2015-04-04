@@ -1,4 +1,19 @@
-h1 You are following these media
+
+h3 Add your favorite movie or tv series
+p This will allow us to constantly check downloadable torrent files of your selected media, so you can easily download them on your next visit.
+.well
+  = form_for @follow, url: user_follows_path do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name
+    .form-group
+      = f.label :type
+      = f.select :type, options_for_select(Follow::MEDIA_TYPE)
+    .form-group
+      = f.submit 'Add', class: 'btn btn-primary'
+
+h1 My favorites
+
 .table-responsive
   table.table.table-striped
     thead

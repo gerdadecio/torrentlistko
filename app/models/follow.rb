@@ -11,5 +11,7 @@
 #
 
 class Follow < ActiveRecord::Base
+  MEDIA_TYPE = %w(series movie)
+
   belongs_to :user
 end

@@ -1,9 +1,11 @@
 ul.nav.nav-sidebar style="margin-top:10px"
-  li.active
-    = link_to root_url do
+  li
+    = active_link_to root_url do
       | Overview
       span.sr-only (current)
   li
-    = link_to "Follows", user_follows_path
+    a href="#"  Downloadables
+  li
+    = active_link_to "My Favorites", user_follows_path
   li
     a href="#"  Discover

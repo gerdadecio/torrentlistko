@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'dowloadables/index'
+
   get 'favorite_media/index'
 
   devise_for :users
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
 
   resource :user, only: [] do
     resources :favorite_media
+    resources :downloadables
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

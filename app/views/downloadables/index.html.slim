@@ -1,0 +1,24 @@
+h1 Downloadables
+
+.table-responsive
+  table.table.table-striped
+    thead
+      tr
+        th
+        th Name
+        th Categories
+        th Published
+        th Action
+    tbody
+      - @downloadables.each do |downloadable|
+        tr
+          td
+            = image_tag downloadable.image_url || 'placeholder.png', class: 'thumbnail'
+          td
+            = link_to downloadable.title, downloadable.url, target: "_blank"
+          td
+            = downloadable.categories.join(', ')
+          td
+            = downloadable.published
+          td
+            = link_to "Download Torrent", downloadable.download_url

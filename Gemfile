@@ -7,6 +7,7 @@ gem 'rails', '4.1.1'
 gem 'pg'
 gem 'annotate', '~> 2.6.6'
 gem 'devise'
+gem 'feedjira'
 
 #UI
 gem "slim-rails"

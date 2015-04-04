@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+websites = [
+  'http://extratorrent.com', 
+  'http://kickass.to/',
+  'https://www.torrentz.eu/',
+  'https://thepiratebay.se/',
+  'http://yts.to/',
+  'https://eztv.it/',
+  'https://isohunt.to/',
+  'http://1337x.to/'
+]
+
+websites.each do |website|
+  Website.create(domain: website)
+end

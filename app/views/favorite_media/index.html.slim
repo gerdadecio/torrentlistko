@@ -28,9 +28,8 @@ h1 My favorites
           td
             = follow.name
           td
-            = follow.type
+            = follow.medium_type
           td
             = follow.created_at
           td
-            = link_to "Edit", "#"
-            = link_to "Delete", "#"
+            = link_to "Delete", user_favorite_medium_path(follow), method: :delete

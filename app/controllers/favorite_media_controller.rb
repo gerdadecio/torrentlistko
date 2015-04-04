@@ -16,6 +16,16 @@ class FavoriteMediaController < ApplicationController
     end
   end
 
+  def destroy
+    favorite_medium = current_user.favorite_media.find(params[:id])
+    if favorite_medium.destroy
+      flash[:notice] = "Favorite media deleted."
+    else
+      flash[:error] = favorite_medium.errors.full_messages.join('. ')
+    end
+    redirect_to user_favorite_media_path
+  end
+
   private
 
   def favorite_media_params

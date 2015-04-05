@@ -18,17 +18,17 @@ class Entry < ActiveRecord::Base
   belongs_to :feed
   serialize :categories, Array
 
-  scope :search_by_title, -> search_text { where('title LIKE ?', search_text) }
+  scope :search_by_title, -> search_text { where('LOWER(title) LIKE ?', search_text.downcase) }
 
   def set_entry_info(entry)
     self.attributes = {
-      title: entry.title,
-      categories: entry.categories,
-      published: entry.published,
+             title: entry.title,
+        categories: entry.categories,
+         published: entry.published,
       download_url: entry.image,
-      image_url: parse_image_url(entry.summary),
-      summary: entry.summary,
-      url: entry.url
+         image_url: parse_image_url(entry.summary),
+           summary: entry.summary,
+               url: entry.url
     }
   end
 

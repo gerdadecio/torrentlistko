@@ -1,5 +1,12 @@
 h1 Downloadables
 
+.well
+  = form_tag search_user_downloadables_path, method: :get
+    .form-group.form-horizontal
+      = text_field_tag 'keyword', '', placeholder: "Search...", class: 'form-control'
+    .form-group
+      = submit_tag 'Submit', class: 'btn btn-primary'
+
 .table-responsive
   table.table.table-striped
     thead
@@ -19,6 +26,6 @@ h1 Downloadables
           td
             = downloadable.categories.join(', ')
           td
-            = downloadable.published
+            = downloadable.published.to_s(:date_and_time)
           td
             = link_to "Download Torrent", downloadable.download_url

@@ -30,6 +30,6 @@ h1 My favorites
           td
             = follow.medium_type
           td
-            = follow.created_at
+            = follow.created_at.to_s(:date_and_time)
           td
             = link_to "Delete", user_favorite_medium_path(follow), method: :delete

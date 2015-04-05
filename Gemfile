@@ -9,6 +9,8 @@ gem 'annotate', '~> 2.6.6'
 gem 'devise'
 gem 'feedjira'
 gem 'nokogiri'
+gem 'resque'
+gem 'resque-scheduler'
 
 #UI
 gem "slim-rails"

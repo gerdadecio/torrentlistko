@@ -1,0 +1,6 @@
+download_feed_entries:
+  cron: 0 0 * * *
+  every: 2h
+  class: FeedEntriesJob
+  description: Feed Entries
+

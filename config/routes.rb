@@ -1,4 +1,9 @@
+require 'resque/server'
+require 'resque-scheduler'
+require 'resque/scheduler/server'
+
 Rails.application.routes.draw do
+  mount Resque::Server.new, at: "/resque"
 
   get 'dowloadables/index'
 
@@ -9,7 +14,11 @@ Rails.application.routes.draw do
 
   resource :user, only: [] do
     resources :favorite_media
-    resources :downloadables
+    resources :downloadables, only: [:index] do
+      collection do
+        get 'search'
+      end
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
